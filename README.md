@@ -44,7 +44,11 @@ Simply run the script `generate_effective_tlds.py` under `scripts` directory, it
 ``` 
 Then re-install the module from source.
 
-You can also use your own list file, the script doesn't check for the format of the file so make sure you have it in the same format defined at [Mozilla Public List](https://publicsuffix.org/list/). 
+You can also use your own list file:
+```
+    $ scripts/generate_effective_tlds.py your_own_list_file.dat
+``` 
+The script doesn't check for the format of the file so make sure you have it in the same format defined at [Mozilla Public List](https://publicsuffix.org/list/). 
 
 Author of this module will also update `pyregdom` on pypi every month if there are changes in the list.
 
