@@ -13,18 +13,18 @@ from .effective_tlds import tld_tree as TLD_TREE
 
 def get_registered_domain(signing_domain, fallback = True):
     signing_domain_parts = signing_domain.split(".")
-    result = find_registered_domain(signing_domain_parts, TLD_TREE)
+    result = find_registered_domain(signing_domain_parts[:], TLD_TREE)
 
     if result is None or result == "":
         # Invalid domain name
         return None
-    
 
     # assure there is at least 1 TLD in the stripped signing domain
     if "." not in result:
         if fallback == False:
             return None
         count = len(signing_domain_parts)
+
         if count == 1 or signing_domain_parts[count-2] == "":
             return None
 
@@ -36,7 +36,7 @@ def get_registered_domain(signing_domain, fallback = True):
     return result
 
 def is_valid_domain_part(dom_part):
-    
+
     l = len(dom_part)
 
     # Domain part must has less than 64 characters according to
