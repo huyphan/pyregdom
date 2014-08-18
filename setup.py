@@ -14,6 +14,11 @@ if sys.argv[-1] == 'publish':
     os.system('python setup.py sdist upload')
     sys.exit()
 
+description      = 'Detect the registered domain for a given domain name based on Mozillas effective TLD listing'
+long_description = description
+if os.path.exists('README.rst'):
+    long_description = open('README.rst').read()
+
 packages = [
     'regdom'
 ]
@@ -22,7 +27,7 @@ setup(
     name='pyregdom',
     version=regdom.__version__,
     description='Detect the registered domain for a given domain name based on Mozillas effective TLD listing',
-    long_description=None,
+    long_description=long_description,
     author='Huy Phan',
     author_email='dachuy@gmail.com',
     url='https://github.com/huyphan/pyregdom',
