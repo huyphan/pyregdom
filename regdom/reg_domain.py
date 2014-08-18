@@ -59,12 +59,13 @@ def is_valid_domain_part(dom_part):
 
 def find_registered_domain(remaining_signing_domain_parts, tree_node):
 
-    sub = remaining_signing_domain_parts.pop()
-
-    result = None
-
     if "!" in tree_node:
         return ""
+
+    if len(remaining_signing_domain_parts) == 0:
+        return ""
+
+    sub = remaining_signing_domain_parts.pop()
 
     if not is_valid_domain_part(sub):
         return None
