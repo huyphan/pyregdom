@@ -2,17 +2,22 @@
 
 import urllib
 import os
+import sys
 import time
 
-url = "https://publicsuffix.org/list/effective_tld_names.dat"
+url       = "https://publicsuffix.org/list/effective_tld_names.dat"
+file_name = None
 
-print "Downloading latest Public Suffix list from ", url
+if len(sys.argv) > 1:
+    file_name = sys.argv[1]
+    print "Parsing", file_name
+    lines = open(file_name, "r").readlines()
+else:
+    print "Downloading the latest Public Suffix list from", url
+    raw_tld_data = urllib.urlopen(url).read()
 
-raw_tld_data = urllib.urlopen(url).read()
-
-print "Done, parsing it now"
-
-lines = raw_tld_data.split("\n")
+    print "Done, parsing it now"
+    lines = raw_tld_data.split("\n")
 
 tld_tree = {}
 
@@ -73,3 +78,5 @@ source_file_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), "../
 source_file = open(source_file_path, "w")
 source_file.write(source_code)
 source_file.close()
+
+print "Done!"
