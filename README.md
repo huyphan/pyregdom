@@ -1,7 +1,7 @@
 pyregdom - Python library for Mozilla Public Suffix list
 ========
 
-A Python version of [usrflo's regdom libs](https://github.com/usrflo/registered-domain-libs) to detect the registered domain for a given domain name, based on Mozillas effective TLD listing.
+A Python version of [usrflo's regdom libs](https://github.com/usrflo/registered-domain-libs) to detect the registered domain for a given domain name, based on [Mozillas effective TLD listing](https://publicsuffix.org/list/).
 
 Installation
 ====
@@ -38,11 +38,13 @@ Usage
 Update the list
 =====
 
-Simply run the script `generate_effective_tlds.py` under `scripts` directory:
+Simply run the script `generate_effective_tlds.py` under `scripts` directory, it will download and parse the latest [Mozilla Public Suffix](https://publicsuffix.org/list/)
 ```
     $ scripts/generate_effective_tlds.py
 ``` 
 Then re-install the module from source.
+
+You can also use your own list file, the script doesn't check for the format of the file so make sure you have it in the same format defined at [Mozilla Public List](https://publicsuffix.org/list/). 
 
 Author of this module will also update `pyregdom` on pypi every month if there are changes in the list.
 
