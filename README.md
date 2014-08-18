@@ -6,11 +6,13 @@ A Python version of [usrflo's regdom libs](https://github.com/usrflo/registered-
 Installation
 ====
 From source code:
+```
     $ sudo python setup.py install
-
+```
 Using `pip`:
+```
     $ pip install pyregdom
-
+```
 Usage
 =====
 ```python
