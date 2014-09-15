@@ -52,7 +52,10 @@ def is_valid_domain_part(dom_part):
     # Use only letters, numbers, or hyphen ("-")
     # not beginning or ending with a hypen (this is TLD specific, be aware!)
 
-    if not re.compile("^([a-z0-9])(([a-z0-9-])*([a-z0-9]))*$").match(dom_part):
+    if not re.compile("^[a-z0-9-]+$").match(dom_part):
+        return False
+
+    if not re.compile("^[a-z0-9]+$").match(dom_part[0]+dom_part[-1]):
         return False
 
     return True;
