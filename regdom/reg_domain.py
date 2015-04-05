@@ -11,7 +11,20 @@ registered domain name from a given hostname
 import re
 from .effective_tlds import tld_tree as TLD_TREE
 
+def is_valid_ipv4(addr):
+    match = re.compile("\A(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})\Z").match(addr)
+    if match:
+        return sum(map(lambda x: int(x) < 256, match.groups())) == 4
+    return False
+
 def get_registered_domain(signing_domain, fallback = True):
+
+    signing_domain = signing_domain.strip()
+
+    # if the given domain looks like ipv4, we just return it as is
+    if is_valid_ipv4(signing_domain):
+        return signing_domain
+
     signing_domain_parts = signing_domain.split(".")
     result = find_registered_domain(signing_domain_parts[:], TLD_TREE)
 
