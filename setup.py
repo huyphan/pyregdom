@@ -25,7 +25,7 @@ packages = [
 
 setup(
     name='pyregdom',
-    version=regdom.__version__,
+    version=regdom.__version__ + "-" + str(regdom.__build__),
     description='Detect the registered domains for given hostnames based on Mozillas effective TLD listing',
     long_description=long_description,
     author='Huy Phan',
