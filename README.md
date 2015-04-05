@@ -1,7 +1,7 @@
 pyregdom - Python library for Mozilla Public Suffix list
 ========
 
-A Python version of [usrflo's regdom libs](https://github.com/usrflo/registered-domain-libs) to detect the registered domain for a given domain name, based on [Mozillas effective TLD listing](https://publicsuffix.org/list/).
+A Python version of [usrflo's regdom libs](https://github.com/usrflo/registered-domain-libs) to detect the registered domains for given hostnames, based on [Mozillas effective TLD listing](https://publicsuffix.org/list/).
 
 Installation
 ====
